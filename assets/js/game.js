@@ -56,7 +56,24 @@ if (playAgainConfirm) {
 else {
   window.alert("Thank you for playing Robot Gladiators! Come back soon!");
 }
+
+var highest_score = localStorage.getItem("robot_gladiator_high_score")
+if (highest_score === "" || highest_score === null) {
+  localStorage.setItem("robot_gladiator_high_score", playerInfo.money);
+  localStorage.setItem("robot_player_high_score", playerInfo.name)
+  console.log("Congratulations! You beat the highest score!");
+  window.alert("Congratulations! You beat the highest score of " + localStorage.getItem("robot_gladiator_high_score"));
+} else if (highest_score < playerInfo.money) {
+  localStorage.setItem("robot_gladiator_high_score", playerInfo.money);
+  localStorage.setItem("robot_player_high_score", playerInfo.name)
+  window.alert ("Congratulations! You beat the highest score of " + highest_score);
+} else {
+  window.alert("You did not beat the highest score of " + localStorage.getItem("robot_gladiator_high_score"));
 }
+
+}
+
+
 
 var shop = function() {
    // ask player what they'd like to do
